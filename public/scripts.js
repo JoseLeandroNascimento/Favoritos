@@ -7,6 +7,7 @@ const tableLinks = document.querySelector("#table-links")
 let elementExcluir;
 let elementEditar;
 
+// Função para adiocionar elemento na tabela
 function addElement({ name, url }) {
 
     const link = { name, url }
@@ -16,6 +17,7 @@ function addElement({ name, url }) {
 
 }
 
+// Função para confirma se o usuario quer remover o elemento
 function confirmaRemocao(){
 
     if(elementExcluir != undefined)
@@ -25,24 +27,36 @@ function confirmaRemocao(){
     elementExcluir = undefined;
 }
 
+// Função para remover
 function removeElement(element) {
     
-
-    element.remove()
+    if(element)
+        element.remove()
 
 }
 
+// Função responsavel por criar um elemento da tabela
 function criaElemento(name, url) {
 
+    // Cria uma linha da tabela
     const tr = document.createElement("tr")
+
+    // Cria a celula do nome do site
     const tdname = document.createElement('td')
+
+    // Cria a celula da url
     const tdurl = document.createElement("td")
+
+    // Cria a celula das operações
     const tdOperacoes = document.createElement('td')
-    const btnExcluir = document.createElement('button')// Cria um botão p/ apagar o a linha criadar
+
+    // Cria botão para excluir
+    const btnExcluir = document.createElement('button')
+
+    // Cria link para abrir o site
     const a = document.createElement('a')
 
-    // data-toggle="modal" data-target="#myModal"
-
+    // Adiciona as classes do bootstrap
     btnExcluir.setAttribute("class",'btn')
     btnExcluir.setAttribute("data-toggle","modal")
     btnExcluir.setAttribute("data-target","#modalExcluir")
@@ -51,28 +65,40 @@ function criaElemento(name, url) {
     btnExcluir.classList.add("fa-trash-o")
     btnExcluir.classList.add("btn-lg")
     btnExcluir.classList.add("btn-sm")
+
+    // Adiciona um ouvinte de evento de click para o botão excluir
     btnExcluir.addEventListener("click",()=>{
 
+        // Obtem a linha da tabela no qual o botão excluir está
         elementExcluir = btnExcluir.parentNode.parentNode
     })
     
-  
+    // Adiciona a url do link
     a.setAttribute('href',url)
+    // Define que a pagina via abrir em uma nova aba
     a.setAttribute("target","_blank")
     a.innerHTML = url
+    // Adiciona o link como conteudo da celula
+    tdurl.appendChild(a)
 
     tdname.innerHTML = name
-    tdurl.appendChild(a)
-    // btnExcluir.innerHTML = "EXCLUIR"
+
+    // Adiciona o botão excluir com conteúdo da celula
     tdOperacoes.appendChild(btnExcluir)
+    // Centraliza o botão no centro da celular
     tdOperacoes.setAttribute('class','text-center')// 
+
+    // Adiciona os elementos na linha da tabela
     tr.appendChild(tdname)
     tr.appendChild(tdurl)
     tr.appendChild(tdOperacoes)
 
+    // Adiciona a linha na tabela
     tableLinks.appendChild(tr)
 }
 
+
+// Função para interceptar o submit do formulario e validar os dados
 form.addEventListener('submit', (event) => {
 
     // Função preventDefault é responsável por interceptar eventos, assim o desenvolvedor pode tratar o evento de forma diferente do padrão
