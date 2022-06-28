@@ -3,15 +3,15 @@ const input = document.querySelector('input')
 const form = document.querySelector('form')
 const tableLinks = document.querySelector("#table-links")
 
-const meusLinks = []
+
 let elementExcluir;
+let elementEditar;
 
 function addElement({ name, url }) {
 
     const link = { name, url }
 
-    meusLinks.push(link)
-
+  
     criaElemento(name, url)
 
 }
@@ -39,7 +39,6 @@ function criaElemento(name, url) {
     const tdurl = document.createElement("td")
     const tdOperacoes = document.createElement('td')
     const btnExcluir = document.createElement('button')// Cria um botão p/ apagar o a linha criadar
-    const btnEditar = document.createElement("button")
     const a = document.createElement('a')
 
     // data-toggle="modal" data-target="#myModal"
@@ -57,23 +56,13 @@ function criaElemento(name, url) {
         elementExcluir = btnExcluir.parentNode.parentNode
     })
     
-    btnEditar.setAttribute("class",'btn')
-    btnEditar.classList.add('btn-primary')
-    btnEditar.classList.add("fa")
-    btnEditar.classList.add("btn-lg")
-    btnEditar.classList.add("btn-sm")
-    btnEditar.classList.add("btn-sm")
-    btnEditar.classList.add("fa-pencil")
-    btnEditar.classList.add("mr-2")
-    
-
+  
     a.setAttribute('href',url)
     a.innerHTML = url
 
     tdname.innerHTML = name
     tdurl.appendChild(a)
     // btnExcluir.innerHTML = "EXCLUIR"
-    tdOperacoes.appendChild(btnEditar)
     tdOperacoes.appendChild(btnExcluir)
     tdOperacoes.setAttribute('class','text-center')// 
     tr.appendChild(tdname)

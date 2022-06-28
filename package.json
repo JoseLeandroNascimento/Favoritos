@@ -1,0 +1,24 @@
+{
+  "name": "favoritos",
+  "version": "1.0.0",
+  "description": "Sistema para gerenciar meus sites favoritos",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseLeandroNascimento/Favoritos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoseLeandroNascimento/Favoritos/issues"
+  },
+  "homepage": "https://github.com/JoseLeandroNascimento/Favoritos#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
