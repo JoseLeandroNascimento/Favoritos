@@ -58,6 +58,7 @@ function criaElemento(name, url) {
     
   
     a.setAttribute('href',url)
+    a.setAttribute("target","_blank")
     a.innerHTML = url
 
     tdname.innerHTML = name
