@@ -7,6 +7,8 @@ const tableLinks = document.querySelector("#table-links")
 let elementExcluir;
 let elementEditar;
 
+
+
 // Função para adiocionar elemento na tabela
 function addElement({ name, url }) {
 
@@ -56,15 +58,21 @@ function criaElemento(name, url) {
     // Cria link para abrir o site
     const a = document.createElement('a')
 
+    const icone = document.createElement("i");
+
+    icone.setAttribute("class","fa")
+    icone.classList.add("text-white")
+    icone.classList.add("fa-trash-o")
+    
+
     // Adiciona as classes do bootstrap
     btnExcluir.setAttribute("class",'btn')
     btnExcluir.setAttribute("data-toggle","modal")
     btnExcluir.setAttribute("data-target","#modalExcluir")
     btnExcluir.classList.add('btn-danger')// adiciona cor ao botão, usando uma classe do botstrap
-    btnExcluir.classList.add("fa")
-    btnExcluir.classList.add("fa-trash-o")
-    btnExcluir.classList.add("btn-lg")
     btnExcluir.classList.add("btn-sm")
+
+    btnExcluir.appendChild(icone)
 
     // Adiciona um ouvinte de evento de click para o botão excluir
     btnExcluir.addEventListener("click",()=>{
